@@ -1,0 +1,108 @@
+hapt:
+  filename: "HAPThar_Dataset/RawData"
+  sampling_freq: 50
+  num_classes: 12
+  num_channels: 6
+  window_seconds: 4
+
+
+recgym:
+  filename: "RecGym_Dataset"
+  sampling_freq: 20
+  num_classes: 12
+  num_channels: 7
+  window_seconds: 4
+
+  
+dg:
+  filename: "Daphnet_Dataset/dataset"
+  sampling_freq: 64
+  num_classes: 2
+  num_channels: 9
+  window_seconds: 4
+
+uschad:
+  filename: "USC_HAD_Dataset"
+  sampling_freq: 100
+  num_classes: 12
+  num_channels: 6
+  window_seconds: 4
+
+pamap2:
+  filename: "PAMAP2_Dataset/Protocol"
+  sampling_freq: 33
+  num_classes: 12
+  num_channels: 18
+  window_seconds: 4
+
+rw:
+  filename: "RWhar_Dataset"
+  sampling_freq: 50
+  num_classes: 8
+  num_channels: 21
+  window_seconds: 4
+
+skodar:
+  filename: "SkodaHAR_Dataset"
+  sampling_freq: 33
+  num_classes: 10
+  num_channels: 30
+  window_seconds: 4
+
+dsads:
+  filename: "DSADS_Dataset"
+  sampling_freq: 25
+  num_classes: 19
+  num_channels: 45
+  window_seconds: 4
+
+
+oppo:
+  filename: "Opportunity_Dataset/dataset"
+  sampling_freq: 30
+  num_classes: 18
+  num_channels: 77
+  window_seconds: 4
+
+
+wisdm:
+  filename: "WISDM_Dataset"
+  sampling_freq: 20
+  num_classes: 6
+  num_channels: 3
+  window_seconds: 4
+
+uci:
+  filename: "UCIHAR_Dataset"
+  sampling_freq: 50
+  num_classes: 6
+  num_channels: 9
+  window_seconds: 2.56
+
+mhealth:
+  filename: "MHEALTH_Dataset"
+  sampling_freq: 50
+  num_classes: 12
+  num_channels: 23
+  window_seconds: 4
+
+motionsense:
+  filename: "Motionsense_Dataset/"
+  sampling_freq: 50
+  num_classes: 6
+  num_channels: 12
+  window_seconds: 4
+
+sho:
+  filename: "SHO_Dataset/"
+  sampling_freq: 50
+  num_classes: 7
+  num_channels: 60
+  window_seconds: 4
+
+utd_mhad_w:
+  filename: "UTD_MHAD_W_Dataset/Inertial/"
+  sampling_freq: 50
+  num_classes: 27
+  num_channels: 6
+  window_seconds: 4

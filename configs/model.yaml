@@ -1,0 +1,143 @@
+# deepconvlstm:
+#   nb_conv_blocks: 2
+#   nb_filters: 4
+#   dilation: 1
+#   batch_norm: 1
+#   filter_width: 5
+#   nb_layers_lstm: 1
+#   drop_prob: 0.5
+#   nb_units_lstm: 8
+#   filter_scaling_factor: 1
+
+deepconvlstm:
+  nb_conv_blocks: 2
+  nb_filters: 64
+  dilation: 1
+  batch_norm: 0
+  filter_width: 5
+  nb_layers_lstm: 1
+  drop_prob: 0.5
+  nb_units_lstm: 128
+  filter_scaling_factor: 1
+
+
+## testing the deepconvgru with following respects: num_conv_block, num_filter, num_gru_unit.
+##  num_conv_block, num_filter are bonded. 
+##  those cases:
+##  nb_filters = 2, conv_block = 2, num_gru_unit = 8
+##  nb_filters = 2, conv_block = 2, num_gru_unit = 16
+##  nb_filters = 2, conv_block = 2, num_gru_unit = 32
+##  nb_filters = 4, conv_block = 4, num_gru_unit = 8
+##  nb_filters = 4, conv_block = 4, num_gru_unit = 16  
+##  nb_filters = 4, conv_block = 4, num_gru_unit = 32
+##  nb_filters = 8, conv_block = 8, num_gru_unit = 8
+##  nb_filters = 8, conv_block = 8, num_gru_unit = 16
+##  nb_filters = 8, conv_block = 8, num_gru_unit = 32
+
+tinierhar:
+  nb_conv_blocks: 4
+  nb_filters: 4
+  dilation: 1
+  batch_norm: 1
+  filter_width: 5
+  drop_prob: 0.3
+  nb_units_gru: 16
+  filter_scaling_factor: 1
+
+lstm_attention:
+  nb_layers_lstm: 1
+  drop_prob: 0.5
+  hidden_size: 32
+  conv_filter_num: 32
+
+attend:
+  hidden_dim: 128
+  filter_num: 64
+  filter_size: 5
+  enc_num_layers: 2
+  dropout: 0.5
+  dropout_rnn: 0.25
+  dropout_cls: 0.5
+  activation: "ReLU"
+  sa_div: 1
+  filter_scaling_factor: 1
+
+sahar:
+  nb_filters: 128
+  filter_scaling_factor: 1
+
+tinyhar:
+  filter_num: 20
+
+deepconvlstm_attn:
+  nb_conv_blocks: 2
+  nb_filters: 64
+  dilation: 1
+  batch_norm: 0
+  filter_width: 5
+  nb_layers_lstm: 2
+  drop_prob: 0.5
+  nb_units_lstm: 128
+  filter_scaling_factor: 1
+
+mcnn:
+  nb_conv_blocks: 2
+  nb_filters: 64
+  dilation: 1
+  batch_norm: 0
+  filter_width: 5
+  drop_prob: 0.25
+  filter_scaling_factor: 1
+
+mlp:
+  numNueronsFCL1: 1024
+  numNueronsFCL2: 512
+  numNueronsFCL3: 128
+  filter_scaling_factor: 1
+
+conv1d_lowranklstm:
+  nb_conv_blocks: 3
+  hidden_size: 32
+  rank: 8
+  drop_prob: 0.5
+  nb_layers_lstm: 2
+  nb_units_lstm: 64
+  filter_scaling_factor: 1
+
+conv1d_lowranklstm_attention:
+  nb_conv_blocks: 3
+  hidden_size: 32
+  rank: 8
+  nb_layers_lstm: 2
+  nb_units_lstm: 32
+  filter_scaling_factor: 1
+  drop_prob: 0.5
+
+
+conv1d_lowranklstm_attention_4conv1d:
+  nb_conv_blocks: 3
+  hidden_size: 64
+  rank: 16
+  nb_layers_lstm: 2
+  nb_units_lstm: 128
+  filter_scaling_factor: 1
+
+conv1d_lowranklstm_attention_all:
+  nb_conv_blocks: 3
+  hidden_size: 64
+  rank: 16
+  nb_layers_lstm: 2
+  nb_units_lstm: 128
+  filter_scaling_factor: 1
+
+conv1d_lowranklstm_self_attention:
+  nb_conv_blocks: 3
+  hidden_size: 64
+  rank: 16
+  nb_layers_lstm: 2
+  nb_units_lstm: 128
+  filter_scaling_factor: 1
+
+self_attention_har:
+  rank: 8
+  filter_scaling_factor: 1
