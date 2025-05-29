@@ -29,7 +29,7 @@ e.g:
 python3 train.py --seeds 5 --model tinierhar --dataset RecGym
 ```
 
-The training and validation result will be stored in the directories if [output](https://anonymous.4open.science/r/TinierHAR-B2F3/output) and [Run_logs](https://anonymous.4open.science/r/TinierHAR-B2F3/Run_logs).
+The training and validation result will be stored in the directories of [output](https://anonymous.4open.science/r/TinierHAR-B2F3/output) and [Run_logs](https://anonymous.4open.science/r/TinierHAR-B2F3/Run_logs).
 
 
 ## Performance (TinierHAR vs. TinyHAR & DeepConvLSTM)
