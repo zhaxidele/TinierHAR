@@ -5,7 +5,7 @@ Here you can find the code of the TinierHAR model (our Submission to Ubicomp/ISW
 
 Submission Title:   TinierHAR: Towards Ultra-Lightweight Deep Learning Models for Efficient Human Activity Recognition on Edge Devices
 
-Note: We gratefully acknowledge the original code contributions from the TECO Group lead by [Prof. Micheal Beigl], which significantly supported the development of this work:
+Note: We gratefully acknowledge the original code contributions from the TECO Group lead by [Prof. Michael Beigl], which significantly supported the development of this work:
 https://github.com/teco-kit/ISWC22-HAR
 
 
