@@ -1,6 +1,6 @@
 import torch
 # Force float32 globally
-torch.set_default_dtype(torch.float32)
+# torch.set_default_dtype(torch.float32)
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
@@ -53,23 +53,23 @@ class Exp(object):
         print("Set the seed as : ", self.args.seed)
 
     def acquire_device(self):
-        #if self.args.use_gpu:
-        #    os.environ["CUDA_VISIBLE_DEVICES"] = str(self.args.gpu) if not self.args.use_multi_gpu else self.args.devices
-        #    device = torch.device('cuda:{}'.format(self.args.gpu))
-        #    print('Use GPU: cuda:{}'.format(self.args.gpu))
-        #else:
-        #    device = torch.device('cpu')
-        #    print('Use CPU')
+        if self.args.use_gpu:
+            os.environ["CUDA_VISIBLE_DEVICES"] = str(self.args.gpu) if not self.args.use_multi_gpu else self.args.devices
+            device = torch.device('cuda:{}'.format(self.args.gpu))
+            print('Use GPU: cuda:{}'.format(self.args.gpu))
+        else:
+            device = torch.device('cpu')
+            print('Use CPU')
         #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        #print(device)
+        print(device)
 
         # Select the device
-        if torch.backends.mps.is_available():
-            device = torch.device("mps")  # Use MPS (Metal Performance Shaders)
-            torch.set_default_dtype(torch.float32)
-            print("Using MPS device with float32 precision.")
-        else:
-            device = torch.device("cpu")  # Fallback to CPU
+        #if torch.backends.mps.is_available():
+        #    device = torch.device("mps")  # Use MPS (Metal Performance Shaders)
+        #    torch.set_default_dtype(torch.float32)
+        #    print("Using MPS device with float32 precision.")
+        #else:
+        #    device = torch.device("cpu")  # Fallback to CPU
         print(f"Using device: {device}")
         torch.set_default_dtype(torch.float32)
 
@@ -378,8 +378,8 @@ class Exp(object):
                 print("================ Build the model ================ ")	
                 if self.args.mixup:
                      print(" Using Mixup Training")				
-                #self.model  = self.build_model().to(self.device)
-                self.model = self.build_model().float().to(self.device)
+                self.model  = self.build_model().to(self.device)
+                #self.model = self.build_model().float().to(self.device)
 
 
                 #print(self.model)
@@ -419,8 +419,8 @@ class Exp(object):
                         #    else:
                         #        outputs = self.model(batch_x1,batch_x2)
                         #else:
-                        #batch_x1 = batch_x1.double().to(self.device) #--
-                        batch_x1 = batch_x1.float().to(self.device) #--
+                        batch_x1 = batch_x1.double().to(self.device) #--
+                        #batch_x1 = batch_x1.float().to(self.device) #--
                         batch_y = batch_y.long().to(self.device) #--
 
                         
@@ -689,8 +689,8 @@ class Exp(object):
                         outputs = model(batch_x1,batch_x2)
                 else:
                     if selected_index is None:
-                        #batch_x1 = batch_x1.double().to(self.device)
-                        batch_x1 = batch_x1.float().to(self.device)
+                        batch_x1 = batch_x1.double().to(self.device)
+                        #batch_x1 = batch_x1.float().to(self.device)
                     else:
                         batch_x1 = batch_x1[:, selected_index.tolist(),:,:].double().to(self.device)
                     batch_y = batch_y.long().to(self.device)
