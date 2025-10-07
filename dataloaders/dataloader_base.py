@@ -54,7 +54,7 @@ class BASE_DATA():
         self.data_name              = args.data_name
 
 		window_save_path = os.path.join(self.window_save_path, self.data_name)
-        os.makedirs(window_save_path, exist_ok=True)  # Create the directory and any missing parent directories
+		os.makedirs(window_save_path, exist_ok=True)  # Create the directory and any missing parent directories
         self.window_save_path = window_save_path
         #window_save_path = os.path.join(self.window_save_path,self.data_name)
         #if not os.path.exists(window_save_path):
