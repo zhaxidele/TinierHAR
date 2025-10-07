@@ -55,13 +55,13 @@ for ds in datasets:
             args.drop_transition = False
             args.datanorm_type = "standardization"  # None ,"standardization", "minmax"
 
-            args.batch_size = 256
+            args.batch_size = 16
             args.shuffle = True
             args.drop_last = False
             args.train_vali_quote = 0.90
 
             # training setting
-            args.train_epochs = 150
+            args.train_epochs = 80
             args.learning_rate = 0.001
             args.learning_rate_patience = 7
             args.learning_rate_factor = 0.1
