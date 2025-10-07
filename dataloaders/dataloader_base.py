@@ -53,9 +53,12 @@ class BASE_DATA():
         self.window_save_path       = args.window_save_path
         self.data_name              = args.data_name
 
-        window_save_path = os.path.join(self.window_save_path,self.data_name)
-        if not os.path.exists(window_save_path):
-            os.mkdir(window_save_path)
+		window_save_path = os.path.join(self.window_save_path, self.data_name)
+        os.makedirs(window_save_path, exist_ok=True)  # Create the directory and any missing parent directories
+        self.window_save_path = window_save_path
+        #window_save_path = os.path.join(self.window_save_path,self.data_name)
+        #if not os.path.exists(window_save_path):
+        #    os.mkdir(window_save_path)
         self.window_save_path       = window_save_path
         self.representation_type    = args.representation_type
         #assert self.data_name in []
