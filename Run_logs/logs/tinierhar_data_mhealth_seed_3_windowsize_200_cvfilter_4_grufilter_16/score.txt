@@ -1,0 +1,12 @@
+Test Accuracy: 0.8434415  Test weighted F1: 0.8109699  Test macro F1 0.8205792
+Test Accuracy: 0.9289773  Test weighted F1: 0.9258394  Test macro F1 0.9290009
+Test Accuracy: 0.9519520  Test weighted F1: 0.9488488  Test macro F1 0.9542114
+Test Accuracy: 0.9211310  Test weighted F1: 0.9169850  Test macro F1 0.9211820
+Test Accuracy: 1.0000000  Test weighted F1: 1.0000000  Test macro F1 1.0000000
+Averaged Test Accuracy: 0.9291003  Averaged Test weighted F1: 0.9205286  Averaged Test macro F1 0.9249947
+Test Accuracy: 0.8434415  Test weighted F1: 0.8109699  Test macro F1 0.8205792
+Test Accuracy: 0.9289773  Test weighted F1: 0.9258394  Test macro F1 0.9290009
+Test Accuracy: 0.9519520  Test weighted F1: 0.9488488  Test macro F1 0.9542114
+Test Accuracy: 0.9211310  Test weighted F1: 0.9169850  Test macro F1 0.9211820
+Test Accuracy: 1.0000000  Test weighted F1: 1.0000000  Test macro F1 1.0000000
+Averaged Test Accuracy: 0.9291003  Averaged Test weighted F1: 0.9205286  Averaged Test macro F1 0.9249947
