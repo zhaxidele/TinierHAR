@@ -82,7 +82,7 @@ class EarlyStopping:
         self.counter = 0
         self.best_score = None
         self.early_stop = False
-        self.val_loss_min = np.Inf
+        self.val_loss_min = np.inf
         self.delta = delta
 
     def __call__(self, val_loss, model, path, f_macro = None, f_weighted = None, log=None):
@@ -124,7 +124,7 @@ class adjust_learning_rate_class:
         self.learning_rate = args.learning_rate
         self.args = args
         self.verbose = verbose
-        self.val_loss_min = np.Inf
+        self.val_loss_min = np.inf
         self.counter = 0
         self.best_score = None
     def __call__(self, optimizer, val_loss):
