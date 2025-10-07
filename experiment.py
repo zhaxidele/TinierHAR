@@ -1,4 +1,6 @@
 import torch
+# Force float32 globally
+torch.set_default_dtype(torch.float32)
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
@@ -22,7 +24,7 @@ import seaborn as sns
 
 import random
 import os
-import torchinfo
+#import torchinfo
 from torch.autograd import Variable
 
 import pandas as pd
@@ -39,7 +41,10 @@ class Exp(object):
         #self.optimizer_dict = {"Adam":optim.SGD}
         self.criterion_dict = {"MSE":nn.MSELoss,"CrossEntropy":nn.CrossEntropyLoss}
 
-        self.model  = self.build_model().to(self.device)
+        #self.model  = self.build_model().to(self.device)
+        self.model = self.build_model().float().to(self.device)
+
+        #self.model = self.model().to(torch.float32)
         print("Done!")
         self.model_size = np.sum([para.numel() for para in self.model.parameters() if para.requires_grad])
         print("Parameter: ", self.model_size)
@@ -55,10 +60,21 @@ class Exp(object):
         #else:
         #    device = torch.device('cpu')
         #    print('Use CPU')
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        print(device)
-        return device
+        #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        #print(device)
 
+        # Select the device
+        if torch.backends.mps.is_available():
+            device = torch.device("mps")  # Use MPS (Metal Performance Shaders)
+            torch.set_default_dtype(torch.float32)
+            print("Using MPS device with float32 precision.")
+        else:
+            device = torch.device("cpu")  # Fallback to CPU
+        print(f"Using device: {device}")
+        torch.set_default_dtype(torch.float32)
+
+        return device
+        
 
     def build_model(self):
         model = model_builder(self.args)
@@ -276,6 +292,8 @@ class Exp(object):
 
         score_log_file_name = os.path.join(self.path, "score.txt")
 
+        torch.set_default_dtype(torch.float32)
+
         torch.manual_seed(self.args.seed)
         torch.cuda.manual_seed(self.args.seed)
         torch.cuda.manual_seed_all(self.args.seed)
@@ -360,10 +378,12 @@ class Exp(object):
                 print("================ Build the model ================ ")	
                 if self.args.mixup:
                      print(" Using Mixup Training")				
-                self.model  = self.build_model().to(self.device)
+                #self.model  = self.build_model().to(self.device)
+                self.model = self.build_model().float().to(self.device)
 
-                print(self.model)
-                torchinfo.summary(self.model, (self.args.batch_size, 1, self.args.input_length, self.args.c_in), dtypes=[torch.double], col_names=("input_size", "output_size", "num_params", "kernel_size", "mult_adds"), verbose=1)
+
+                #print(self.model)
+                #torchinfo.summary(self.model, (self.args.batch_size, 1, self.args.input_length, self.args.c_in), dtypes=[torch.double], col_names=("input_size", "output_size", "num_params", "kernel_size", "mult_adds"), verbose=1)
 
                 #dummy_input = Variable(torch.randn(self.args.batch_size, 1, self.args.input_length, self.args.c_in))
                 #torch.onnx.export(self.model, dummy_input.double().cuda(), cv_path +'/'+ self.args.model_type + "_" + self.args.data_name + "_seed_" +  str(self.args.seed) + "_cv_" + str(num_of_cv) + ".onnx")
@@ -399,7 +419,8 @@ class Exp(object):
                         #    else:
                         #        outputs = self.model(batch_x1,batch_x2)
                         #else:
-                        batch_x1 = batch_x1.double().to(self.device) #--
+                        #batch_x1 = batch_x1.double().to(self.device) #--
+                        batch_x1 = batch_x1.float().to(self.device) #--
                         batch_y = batch_y.long().to(self.device) #--
 
                         
@@ -668,7 +689,8 @@ class Exp(object):
                         outputs = model(batch_x1,batch_x2)
                 else:
                     if selected_index is None:
-                        batch_x1 = batch_x1.double().to(self.device)
+                        #batch_x1 = batch_x1.double().to(self.device)
+                        batch_x1 = batch_x1.float().to(self.device)
                     else:
                         batch_x1 = batch_x1[:, selected_index.tolist(),:,:].double().to(self.device)
                     batch_y = batch_y.long().to(self.device)
