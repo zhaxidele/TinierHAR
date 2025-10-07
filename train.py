@@ -49,8 +49,8 @@ for ds in datasets:
             args.to_save_path = "Run_logs"
             args.freq_save_path = "Freq_data"
             args.window_save_path = "Sliding_window"
-            #args.root_path = "datasets"
-            args.root_path = "/netscratch/bian/"   ## dataset
+            args.root_path = "datasets"
+            #args.root_path = "/netscratch/bian/"   ## dataset
 
             args.drop_transition = False
             args.datanorm_type = "standardization"  # None ,"standardization", "minmax"
