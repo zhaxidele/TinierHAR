@@ -365,8 +365,8 @@ class Exp(object):
                 print(self.model)
                 torchinfo.summary(self.model, (self.args.batch_size, 1, self.args.input_length, self.args.c_in), dtypes=[torch.double], col_names=("input_size", "output_size", "num_params", "kernel_size", "mult_adds"), verbose=1)
 
-                dummy_input = Variable(torch.randn(self.args.batch_size, 1, self.args.input_length, self.args.c_in))
-                torch.onnx.export(self.model, dummy_input.double().cuda(), cv_path +'/'+ self.args.model_type + "_" + self.args.data_name + "_seed_" +  str(self.args.seed) + "_cv_" + str(num_of_cv) + ".onnx")
+                #dummy_input = Variable(torch.randn(self.args.batch_size, 1, self.args.input_length, self.args.c_in))
+                #torch.onnx.export(self.model, dummy_input.double().cuda(), cv_path +'/'+ self.args.model_type + "_" + self.args.data_name + "_seed_" +  str(self.args.seed) + "_cv_" + str(num_of_cv) + ".onnx")
 
                 early_stopping        = EarlyStopping(patience=self.args.early_stop_patience, verbose=True)
                 learning_rate_adapter = adjust_learning_rate_class(self.args,True)
