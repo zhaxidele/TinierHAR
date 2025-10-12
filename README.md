@@ -38,3 +38,14 @@ The training and validation result will be stored in the directories of [output]
 
 
 
+## Related Paper (TinierHAR vs. TinyHAR & DeepConvLSTM)
+```
+@inproceedings{bian2025tinierhar,
+  title={TinierHAR: Towards Ultra-Lightweight Deep Learning Models for Efficient Human Activity Recognition on Edge Devices},
+  author={Bian, Sizhen and Liu, Mengxi and Rey, Vitor Fortes and Geissler, Daniel and Lukowicz, Paul},
+  booktitle={Proceedings of the 2025 ACM International Symposium on Wearable Computers},
+  pages={163--169},
+  year={2025}
+}
+```
+
